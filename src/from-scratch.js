@@ -1,34 +1,80 @@
-const helloWorldRegex = (str) => {};
+const helloWorldRegex = (str) => {
+  
+const pattern = /hello world/i;
 
-const hasAVowel = (str) => {};
+return pattern.test(str);
+}
 
-const hasCatsOrDogs = (str) => {};
+const hasAVowel = (str) => {
+  const pattern = /[aeiou]/i;
 
-const hasVowelStart = (str) => {};
+  return pattern.test(str);
+}
 
-const hasPunctuationEnd = (str) => {};
+const hasCatsOrDogs = (str) => {
+  const pattern = /cats|dogs/i;
 
-const hasNothingOrDigits = (str) => {};
+  return pattern.test(str);
 
-const hasNoFlippers = (str) => {};
+ };
 
-const isValidEmail = (str) => {};
+const hasVowelStart = (str) => {
+  const pattern = /^[aeiou]/i;
+  return pattern.test(str)
+}
 
-const isValidPhoneNumber = (str) => {};
+const hasPunctuationEnd = (str) => /[!.?]$/.test(str);
 
-const matchAllNumbers = (str) => {};
+const hasNothingOrDigits = (str) => { 
+  const pattern = /^(\d*)$/;
 
-const matchAllNumbersAsNumbers = (str) => {};
+  return pattern.test(str);
+};
 
-const matchAllWords = (str) => {};
+const hasNoFlippers = (str) => !/[clikoxBCDEHIKOX]/.test(str)
 
-const replaceAllNumbers = (str) => {};
+const isValidEmail = (str) => {}
 
-const fixFileName = (str) => {};
+const isValidPhoneNumber = (str) => { };
 
-const nameRedacter = (str) => {};
+const matchAllNumbers = (str) => { 
+  const pattern = /\d+/g;
 
-const camelToSnakeCase = (str) => {};
+const matches = str.match(pattern);
+
+return matches === null ? [] : matches;};
+
+const matchAllNumbersAsNumbers = (str) => (str.match(/\d+/g) || []).map(Number);
+
+const matchAllWords = (str) => {
+  const pattern = /[a-zA-Z']+/g;
+
+const matches = str.match(pattern);
+
+return matches || [];
+};
+
+const replaceAllNumbers = (str) => str.replace(/\d+/g, "???")
+
+const fixFileName = (str) => {
+  const pattern = /\s+/g;
+
+  const fixedStr = str.replace(pattern, '_');
+
+  return fixedStr;
+
+ };
+
+const nameRedacter = (str) => str.replace(/\b[A-Z]{2,}\b/g, 'REDACTED' )
+
+const camelToSnakeCase = (str) => { 
+  const pattern = /[A-Z]/g;
+
+  const snakeCaseString = str.replace(pattern, (match) => '_' + match.toLowerCase());
+
+  return snakeCaseString.replace(/^_/, '');
+
+};
 
 module.exports = {
   helloWorldRegex,
