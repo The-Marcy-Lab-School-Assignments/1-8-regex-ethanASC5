@@ -1,3 +1,4 @@
+/** FEEDBACK: Great job getting most test cases to pass! */
 const helloWorldRegex = (str) => {
   
 const pattern = /hello world/i;
